@@ -1,0 +1,395 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  --asidebgcolor: #1a1a27;
+  --headerBgColor: #fff;
+  --headtextColor: #183b56;
+  --errorColor: #ff0000;
+  --activeLink: #d54e38;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--headtextColor);
+}
+
+.error-msg {
+  padding: 5px;
+  color: var(--errorColor);
+  font-size: 13px;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* .asideBar {
+  width: 25%;
+  position: fixed;
+  right: 0;
+  top:75px;
+  height: 100%;
+  background-color: var(--headerBgColor);
+  font-weight: 500;
+  z-index: 5;
+} 
+
+ .accordion-content {
+  background-color: #eee5e5;
+  padding-left: 20px;
+}
+
+.accordion-title{
+  padding: 10px;
+}
+.accordion-content ul {
+  margin: 0px;
+  padding: 0px;
+}
+.accordion-content ul li {
+  list-style: none;
+  padding: 10px;
+}
+
+.accordion-content ul li a {
+  text-decoration: none;
+  color: var(--headtextColor);
+}  */
+
+/* login css */
+
+.login{
+  background: linear-gradient(
+    101.44deg,
+    rgba(252, 204, 203, 0.2) 16.81%,
+    rgba(239, 230, 212, 0.2) 53.67%,
+    rgba(211, 220, 243, 0.2) 67.17%,
+    rgba(217, 245, 253, 0.2) 76.66%,
+    rgba(255, 255, 255, 0.2) 86.88%
+  ),
+  linear-gradient(0deg, #ffffff, #ffffff);
+}
+.loginDetails{
+  background-color: #fff;
+}
+
+
+/* layout css  */
+
+.layout {
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1 0 auto;
+  padding: 20px;
+  /* padding-top: 100px; */
+}
+/* --------header and navbar css----------- */
+
+.header {
+  position: relative;
+  background-color: var(--headerBgColor);
+  color: var(--headtextColor);
+  box-shadow: 0px 3px 10px 0px rgba(24, 59, 86, 0.2);
+  font-weight: 500;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-item {
+  padding: 0 10px;
+  position: relative;
+  cursor: pointer;
+}
+.navbar-item a {
+  text-decoration: none;
+  color: var(--headtextColor);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+
+.navbar-item:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-items {
+  list-style: none;
+  background-color: var(--headerBgColor);
+  color: var(--headtextColor);
+  margin: 0;
+  padding: 10px;
+  position: relative;
+}
+
+.dropdown-item {
+  font-weight: 500;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--headerBgColor);
+  color: var(--headtextColor);
+}
+
+/*  logout button css */
+.logOutButton {
+  padding: 5px 10px;
+  color: white;
+  background: linear-gradient(80deg, #d03921 0%, #ffa192 100%);
+  border-radius: 4px;
+  border: none;
+  box-shadow: 1px 1px #fff;
+  font-weight: 500;
+}
+
+.logOutButton:hover {
+  background: linear-gradient(80deg, rgb(0, 0, 0) 0%, rgb(53, 52, 52) 100%);
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar {
+    display: none;
+  }
+  .open {
+    list-style: none;
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--headerBgColor);
+    width: 100%;
+    padding: 5px;
+    z-index: 5;
+    text-align: center;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-item {
+    padding: 5px 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  .navbar-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background-color: var(--headerBgColor);
+    border: none;
+    padding: 0;
+  }
+
+  .dropdown-items {
+    list-style: none;
+    background-color: var(--headerBgColor);
+    margin: 0;
+    position: static;
+    padding-bottom: 0;
+  }
+
+  .dropdown-item {
+    color: var(--headtextColor);
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .dropdown-item:hover {
+    background-color: var(--headerBgColor);
+    color: var(--headtextColor);
+  }
+}
+
+/* -----Footer css */
+.footer a {
+  color: var(--headtextColor);
+}
+
+/*  button css */
+.button-37 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fafdff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 15px;
+  outline: none;
+  outline: 0;
+  padding: 10px 15px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  min-width: 90px;
+}
+
+.button-37:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+.button-37:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.button-37-cancel {
+  background-color: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fafdff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 15px;
+  outline: none;
+  outline: 0;
+  padding: 10px 15px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  min-width: 90px;
+}
+
+.button-37-cancel:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+.button-37-csv {
+  background-color: #4267b2;
+  border: 1px solid #4267b2;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fafdff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 15px;
+  outline: none;
+  outline: 0;
+  padding: 10px 15px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  min-width: 90px;
+}
+
+.button-37-csv:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+/*  game Management module css */
+.navBar {
+  height: 50px;
+  width: 99%;
+  margin: 10px;
+  /* background-color: #000; */
+  color: #b94423;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #c3c2c2;
+}
+
+.navBar > p {
+  margin: 0 10px;
+}
+
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 15px;
+  justify-content: center;
+  line-height: 0.5em;
+  max-width: 100%;
+  min-width: 120px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 14px 15px;
+  border-radius: 6px;
+  width: 100%;
+  height: 80%;
+  transition: 300ms;
+  font-weight: 600;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+
+/*  Insights module */
+.card{
+  background: linear-gradient( 101.44deg, rgba(252, 204, 203, 0.2) 16.81%, rgba(239, 230, 212, 0.2) 53.67%, rgba(211, 220, 243, 0.2) 67.17%, rgba(217, 245, 253, 0.2) 76.66%, rgba(255, 255, 255, 0.2) 86.88% ), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+  color: #333;
+  padding: 15px;
+}
