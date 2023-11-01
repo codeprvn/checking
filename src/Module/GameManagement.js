@@ -97,11 +97,14 @@ const GameManagement = () => {
         }
       })()
     }
+    if(name === 'Enable'){
+      alert('api is not available')
+    }
   }
 
 
 
-  const actionButton = [{ name: 'Edit' }, { name: 'Disable' }]
+  const actionButton = [{ name: 'Edit' }, { name: 'Disable', format :(data, row)=>{return (<button className={row['isActive'] ?'actionButton danger' :'actionButton '} key={data} onClick={() => actionHandler(row['isActive'] ? data : 'Enable', row)}>{row['isActive'] ? data: 'Enable'}</button>)} }]
 
   // Table header
   const columns = [{ id: 'position', label: 'Serial no' },

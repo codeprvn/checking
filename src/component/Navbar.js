@@ -4,17 +4,19 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaBars } from 'react-icons/fa'
 
 const Navbar = () => {
+
+  // this state veriable in usef for open dropdown on hover
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  // Open and close hamburger menu
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigate = useNavigate()
 
+  // function on dropdown menu
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  }
 
   const handleMouseEnter = () => {
     setDropdownOpen(true);
@@ -24,6 +26,12 @@ const Navbar = () => {
     setDropdownOpen(false);
   };
 
+  // handle hamburger menu open/close
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  }
+ 
+// logout user and redirect to login page
   const onLogOut = ()=>{
     localStorage.removeItem('token')
     navigate('/login')

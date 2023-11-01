@@ -91,6 +91,7 @@ a {
   padding: 20px;
   /* padding-top: 100px; */
 }
+
 /* --------header and navbar css----------- */
 
 .header {
@@ -124,6 +125,12 @@ a {
   text-decoration: none;
   color: var(--headtextColor);
 }
+
+/* for active link */
+/* .navbar-item a.active {
+  text-decoration: none;
+  color: var(--activeLink);
+} */
 
 .dropdown-menu {
   position: absolute;

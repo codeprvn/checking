@@ -41,7 +41,15 @@ const SharedTable = ({ columns, rows, page, handleChangePage, totalPage, isActio
                       </TableCell>
                     );
                   })}
-                  {isAction && <TableCell className='bodyColumnfirst'><div className='actionGrid'> {actionButton.map((btn) => (<button className='actionButton' key={btn.name} onClick={() => actionHandler(btn.name, row)}>{btn.name}</button>))}</div></TableCell>}
+                  {isAction && <TableCell className='bodyColumnfirst'>
+                    <div className='actionGrid'>
+                      
+                      {/* below line is static for enable disable  */}
+                      {/* {actionButton.map((btn) => btn.name==='Disable'? (<button className={row['isActive'] ?'actionButton danger' :'actionButton '} key={btn.name} onClick={() => actionHandler(row['isActive'] ? btn.name : 'Enable', row)}>{row['isActive'] ? btn.name : 'Enable'}</button>) :(<button className='actionButton' key={btn.name} onClick={() => actionHandler(btn.name, row)}>{btn.name}</button>))} */}
+
+                  {/* by this we can create button accordingly */}
+                      { actionButton.map(btn =>btn.format?btn.format(btn.name, row):(<button className='actionButton' key={btn.name} onClick={() => actionHandler(btn.name, row)}>{btn.name}</button>) )}
+                      </div></TableCell>}
                 </TableRow>
               );
             })}

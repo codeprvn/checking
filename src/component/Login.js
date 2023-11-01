@@ -59,7 +59,7 @@ function Login() {
         <img src={gbLogo} height="100px" />
       </div>
       <div className="d-flex flex-column p-3 rounded loginDetails">
-        <div className="mb-4">
+        <div className="my-4">
           <h5>
             Sign In to <span style={{color : '#d54e38',}} >Gamebadlo</span> Dashboard
           </h5>
