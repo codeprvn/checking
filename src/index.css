@@ -29,6 +29,12 @@ a {
   text-decoration: none;
 }
 
+input[readonly],
+input[readonly]:focus {
+  background-color: #eff2f5;
+  opacity: 1;
+}
+
 /* .asideBar {
   width: 25%;
   position: fixed;
@@ -64,21 +70,20 @@ a {
 
 /* login css */
 
-.login{
+.login {
   background: linear-gradient(
-    101.44deg,
-    rgba(252, 204, 203, 0.2) 16.81%,
-    rgba(239, 230, 212, 0.2) 53.67%,
-    rgba(211, 220, 243, 0.2) 67.17%,
-    rgba(217, 245, 253, 0.2) 76.66%,
-    rgba(255, 255, 255, 0.2) 86.88%
-  ),
-  linear-gradient(0deg, #ffffff, #ffffff);
+      101.44deg,
+      rgba(252, 204, 203, 0.2) 16.81%,
+      rgba(239, 230, 212, 0.2) 53.67%,
+      rgba(211, 220, 243, 0.2) 67.17%,
+      rgba(217, 245, 253, 0.2) 76.66%,
+      rgba(255, 255, 255, 0.2) 86.88%
+    ),
+    linear-gradient(0deg, #ffffff, #ffffff);
 }
-.loginDetails{
+.loginDetails {
   background-color: #fff;
 }
-
 
 /* layout css  */
 
@@ -126,6 +131,10 @@ a {
   color: var(--headtextColor);
 }
 
+.navbar-item a:hover,
+.navbar-item a:focus {
+  color: var(--activeLink);
+}
 /* for active link */
 /* .navbar-item a.active {
   text-decoration: none;
@@ -393,10 +402,17 @@ a {
   background: none;
 }
 
-
 /*  Insights module */
-.card{
-  background: linear-gradient( 101.44deg, rgba(252, 204, 203, 0.2) 16.81%, rgba(239, 230, 212, 0.2) 53.67%, rgba(211, 220, 243, 0.2) 67.17%, rgba(217, 245, 253, 0.2) 76.66%, rgba(255, 255, 255, 0.2) 86.88% ), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+.card {
+  background: linear-gradient(
+      101.44deg,
+      rgba(252, 204, 203, 0.2) 16.81%,
+      rgba(239, 230, 212, 0.2) 53.67%,
+      rgba(211, 220, 243, 0.2) 67.17%,
+      rgba(217, 245, 253, 0.2) 76.66%,
+      rgba(255, 255, 255, 0.2) 86.88%
+    ),
+    linear-gradient(0deg, #ffffff, #ffffff);
   color: #333;
   padding: 15px;
 }

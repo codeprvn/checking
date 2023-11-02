@@ -33,7 +33,6 @@
   gap: 5px;
 }
 
-
 /* CSS */
 .actionButton {
   background-color: #ffffff;
@@ -75,7 +74,12 @@
     rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
 }
 
-.danger , .danger:hover{
+.danger,
+.danger:hover {
   background-color: #ff2212;
-  color:#fff
+  color: #fff;
+}
+
+.css-levciy-MuiTablePagination-displayedRows {
+  margin: 0px !important;
 }

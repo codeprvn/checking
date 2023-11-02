@@ -4,10 +4,12 @@ import * as Yup from "yup";
 import http from '../utilities/api';
 import SuccessDialog from '../shared component/SuccessDialog';
 import InvalidDialog from '../shared component/InvalidDialog';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateNewVerosion = () => {
 
+  const route = useNavigate()
   const [openDia, setOpenDia] = useState(false);
   const [diaMsg, setDiaMsg] = useState('');
   const [errorDia, setErrorDia] = useState(false);
@@ -16,6 +18,7 @@ const CreateNewVerosion = () => {
   // Close Dialog function
   const closeDia = () => {
     setOpenDia(false);
+    route('/version/list-version')
   }
   const closeErrorDia = () => {
     setErrorDia(false);

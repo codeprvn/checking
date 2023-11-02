@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import http from '../utilities/api';
 import SuccessDialog from '../shared component/SuccessDialog';
 import InvalidDialog from '../shared component/InvalidDialog';
+import { removeEmpty } from '../utilities/sharedMethod';
 
 const GameManagement = () => {
 
@@ -79,13 +80,14 @@ const GameManagement = () => {
     if (name === 'Edit') {
       navigate(`edit-table/${paramId}`);
     }
-    if (name === 'Disable') {
+    if (name === 'Disable' || name === 'Enable') {
       (async () => {
         try {
           const resp = await http.patch(`game-management/disableTable/${paramId}`)
           if (resp?.data?.success === true) {
             setDiaMsg(resp.data.message);
             setOpenDia(true);
+            apiData();
           }
           else if (resp?.data?.success === false) {
             setErrorDiaMsg(resp.data.message);
@@ -97,9 +99,25 @@ const GameManagement = () => {
         }
       })()
     }
-    if(name === 'Enable'){
-      alert('api is not available')
-    }
+    // if(name === 'Enable'){
+    //   (async () => {
+    //     try {
+    //       const resp = await http.patch(`game-management/disableTable/${paramId}`)
+    //       if (resp?.data?.success === true) {
+    //         setDiaMsg(resp.data.message);
+    //         setOpenDia(true);
+    //         apiData();
+    //       }
+    //       else if (resp?.data?.success === false) {
+    //         setErrorDiaMsg(resp.data.message);
+    //         setErrorDia(true)
+    //       }
+    //     } catch (error) {
+    //       setErrorDiaMsg(error?.response?.data?.message);
+    //       setErrorDia(true);
+    //     }
+    //   })()
+    // }
   }
 
 
@@ -123,11 +141,12 @@ const GameManagement = () => {
       isActive: Yup.string().required('Status required'),
     }),
     onSubmit: async (values) => {
+      const params = removeEmpty(values)
       try {
-        const resp = await http.get('game-management/listTables', { params: { ...values, skip: 0, limit: 20 } })
+        const resp = await http.get('game-management/listTables', { params: { ...params, skip: 0, limit: 20 } })
         setPage(0);
         if (resp?.data?.success === true) {
-          forFilter.current = { ...values }
+          forFilter.current = { ...params }
           // setForFilter({...values})
           setRows([...resp.data.data]);
           setTotalPage(resp.data.totalData);

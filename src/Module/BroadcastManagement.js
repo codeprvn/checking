@@ -86,11 +86,11 @@ const BroadcastManagement = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className='row g-3 mb-5 align-items-center'>
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Broadcast To</label>
+            <label className='col-form-label'>Broadcast To:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select name='broadCastTo' className='form-control form-select' value={formik.values.broadCastTo} onChange={formik.handleChange} onBlur={formik.handleBlur} >
-              <option defaultValue hidden>Select Player Type</option>
+              <option defaultValue hidden>Select Broadcast To</option>
               <option value='ALL_PLAYERS' >All Players</option>
               <option value='TABLE' >Table</option>
             </select>
@@ -101,11 +101,11 @@ const BroadcastManagement = () => {
           {
             formik.values.broadCastTo === 'TABLE' &&
             <><div className='col-lg-3 col-md-3 text-center'>
-              <label className='col-form-label'>GameVariation</label>
+              <label className='col-form-label'>Game Variation:</label>
             </div>
               <div className='col-lg-3 col-md-3 text-center'>
                 <select className='form-control form-select' name='channelVariation' value={formik.values.channelVariation} onChange={formik.handleChange} onBlur={formik.handleBlur}>
-                  <option defaultValue hidden>Select Player Type</option>
+                  <option defaultValue hidden>Select Game Variation</option>
                   <option value='Texas Hold’em' >Texas Hold'em</option>
                   <option value='Omaha' >Omaha</option>
                   <option value='Six Plus Hold’em' >Six Plus Hold'em</option>
@@ -118,11 +118,11 @@ const BroadcastManagement = () => {
               </div>
 
               <div className='col-lg-3 col-md-3 text-center'>
-                <label className='col-form-label'>Chips Type</label>
+                <label className='col-form-label'>Chips Type:</label>
               </div>
               <div className='col-lg-3 col-md-3 text-center'>
                 <select className='form-control form-select' name='chipsType' value={formik.values.chipsType} onChange={formik.handleChange} onBlur={formik.handleBlur}>
-                  <option defaultValue hidden>Select Player Type</option>
+                  <option defaultValue hidden>Select Chips Type</option>
                   <option value='ALL' >All</option>
                   <option value='REAL_MONEY' >Real Money</option>
                   <option value='PLAY_MONEY' >Play Money</option>
@@ -132,11 +132,11 @@ const BroadcastManagement = () => {
               </div>
 
               <div className='col-lg-3 col-md-3 text-center'>
-                <label className='col-form-label'>Table</label>
+                <label className='col-form-label'>Table:</label>
               </div>
               <div className='col-lg-3 col-md-3 text-center'>
                 <select className='form-control form-select' name='channelId' value={formik.values.channelId} onChange={formik.handleChange} onBlur={formik.handleBlur}>
-                  <option defaultValue hidden>Select Player Type</option>
+                  <option defaultValue hidden>Select a Table</option>
                   {tableList && tableList.map((table) => (
                     <option key={table._id} value={table.channelId}>{table.channelName}</option>
                   ))}
@@ -146,7 +146,7 @@ const BroadcastManagement = () => {
               </div></>
           }
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Broadcast Heading</label>
+            <label className='col-form-label'>Broadcast Heading:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input type='text' name='broadCastHeading' className='form-control' value={formik.values.broadCastHeading} onChange={formik.handleChange} onBlur={formik.handleBlur} />
@@ -155,7 +155,7 @@ const BroadcastManagement = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Broadcast Message</label>
+            <label className='col-form-label'>Broadcast Message:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <textarea name='broadCastMessage' className='form-control' value={formik.values.broadCastMessage} onChange={formik.handleChange} onBlur={formik.handleBlur} ></textarea>

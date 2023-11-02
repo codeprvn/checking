@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from "yup";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import http from '../utilities/api'
 import SuccessDialog from '../shared component/SuccessDialog';
 import InvalidDialog from '../shared component/InvalidDialog';
@@ -9,7 +9,7 @@ import InvalidDialog from '../shared component/InvalidDialog';
 const EditTable = () => {
 
   const { id } = useParams();
-
+  const route = useNavigate();
   const [formData, setFormData] = useState({
     channelName: '',
     channelVariation: '',
@@ -36,6 +36,7 @@ const EditTable = () => {
   // Close Dialog function
   const closeDia = () => {
     setOpenDia(false);
+    route('/game-management')
   }
 
   const closeErrorDia = () => {
@@ -82,7 +83,8 @@ const EditTable = () => {
     },
   });
 
-  const formReset = () => {
+  const formReset = (event) => {
+    event.preventDefault();
     formik.resetForm()
     fetchMyAPI()
   }
@@ -273,7 +275,7 @@ const EditTable = () => {
 
         <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
           <span className="button-wrapper"><button type="submit" className="button-37" >Submit</button></span>
-          <span className="button-wrapper"><button type="reset" onClick={formReset} className="button-37-cancel">Reset</button></span>
+          <span className="button-wrapper"><button onClick={formReset} className="button-37-cancel">Reset</button></span>
         </div>
 
       </form>

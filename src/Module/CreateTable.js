@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import http from '../utilities/api';
 import SuccessDialog from '../shared component/SuccessDialog';
 import InvalidDialog from '../shared component/InvalidDialog';
+import { useNavigate } from 'react-router-dom';
 
 const CreateTable = () => {
   const [formData, setFormData] = useState({
@@ -28,9 +29,12 @@ const CreateTable = () => {
   const [errorDia, setErrorDia] = useState(false);
   const [errorDiaMsg, setErrorDiaMsg] = useState('');
 
+  const route = useNavigate()
+
   // Close Dialog function
   const closeDia = () => {
     setOpenDia(false);
+    route('/game-management')
   }
   const closeErrorDia = () => {
     setErrorDia(false);

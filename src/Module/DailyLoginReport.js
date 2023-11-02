@@ -68,7 +68,7 @@ const DailyLoginReport = () => {
   { id: 'userName', label: 'Username', },
   { id: 'device', label: 'Device' },
   { id: 'ipAddress', label: 'IP Address' },
-  { id: 'contact', label: 'Mobile' },
+  { id: 'contact', label: 'Mobile', format: (value) => value.slice(-4).padStart(value.length, '*')  },
   { id: 'emailId', label: 'Email' },
   {
     id: 'loginTime', label: 'Login Time', format: (value) => {
