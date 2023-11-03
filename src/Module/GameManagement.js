@@ -190,7 +190,7 @@ const GameManagement = () => {
               <label className='col-form-label'>Table Name:</label>
             </div>
             <div className='col-lg-3 text-center'>
-              <input className='form-control' type='text' name='tableName' value={formik.values.tableName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Table Name' />
+              <input className={'form-control ' + (formik.errors.tableName ? 'shadow border border-danger' : 'shadow border border-success')} type='text' name='tableName' value={formik.values.tableName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Table Name' />
               {formik.touched.tableName && formik.errors.tableName ? (
                 <small className="error-msg">{formik.errors.tableName}</small>
               ) : null}
@@ -200,7 +200,7 @@ const GameManagement = () => {
               <label className='col-form-label'>Status:</label>
             </div>
             <div className='col-lg-3 text-center'>
-              <select className='form-control form-select' type='text' name='isActive' value={formik.values.isActive} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Status'>
+              <select className={'form-control form-select ' + (formik.errors.isActive ? 'shadow border border-danger' : 'shadow border border-success')} type='text' name='isActive' value={formik.values.isActive} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Status'>
                 <option defaultValue hidden>Select Player Type</option>
                 <option value='true' >Active</option>
                 <option value='false' >Inactive</option>

@@ -53,7 +53,7 @@ const EditPlayer = () => {
           lastName: values.lastName,
           userName: values.userName,
           emailId: values.emailId,
-          mobileNumber: values.mobileNumber,
+          mobileNumber: values.mobileNumber.toString(),
           isBlocked: values.isBlocked === 'true' || values.isRunItTwiceTable === true ? true : false
         }
 
@@ -111,7 +111,7 @@ const EditPlayer = () => {
             <label className='col-form-label'>First Name:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='firstName' type='text' value={formik.values.firstName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter First Name' />
+            <input className={'form-control '+ (formik.errors.firstName ? 'shadow border border-danger' : 'shadow border border-success')}name='firstName' type='text' value={formik.values.firstName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter First Name' />
             {formik.touched.firstName && formik.errors.firstName ? (
               <small className="error-msg">{formik.errors.firstName}</small>
             ) : null}
@@ -121,7 +121,7 @@ const EditPlayer = () => {
             <label className='col-form-label'>Last Name:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='lastName' type='text' value={formik.values.lastName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Last Name' />
+            <input className={'form-control '+ (formik.errors.lastName ? 'shadow border border-danger' : 'shadow border border-success')} name='lastName' type='text' value={formik.values.lastName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Last Name' />
             {formik.touched.lastName && formik.errors.lastName ? (
               <small className="error-msg">{formik.errors.lastName}</small>
             ) : null}
@@ -141,7 +141,7 @@ const EditPlayer = () => {
             <label className='col-form-label'>Email:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' type='email' name='emailId' value={formik.values.emailId} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Email' />
+            <input className={'form-control '+ (formik.errors.emailId ? 'shadow border border-danger' : 'shadow border border-success')} type='email' name='emailId' value={formik.values.emailId} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Email' />
             {formik.touched.emailId && formik.errors.emailId ? (
               <small className="error-msg">{formik.errors.emailId}</small>
             ) : null}
@@ -151,7 +151,7 @@ const EditPlayer = () => {
             <label className='col-form-label'>Phone:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' type='number' name='mobileNumber' value={formik.values.mobileNumber} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Phone No' />
+            <input className={'form-control '+ (formik.errors.mobileNumber ? 'shadow border border-danger' : 'shadow border border-success')} type='number' name='mobileNumber' value={formik.values.mobileNumber} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Phone No' />
             {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
               <small className="error-msg">{formik.errors.mobileNumber}</small>
             ) : null}
@@ -161,7 +161,7 @@ const EditPlayer = () => {
             <label className='col-form-label'>Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='isBlocked' onBlur={formik.handleBlur} value={formik.values.isBlocked} onChange={formik.handleChange} >
+            <select className={'form-control form-select '+ (formik.errors.isBlocked ? 'shadow border border-danger' : 'shadow border border-success')} name='isBlocked' onBlur={formik.handleBlur} value={formik.values.isBlocked} onChange={formik.handleChange} >
               <option defaultValue hidden>Select a Value</option>
               <option value='false' >Active</option>
               <option value='true' >Block</option>

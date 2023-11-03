@@ -53,13 +53,14 @@ const BroadcastManagement = () => {
       broadCastTo: Yup.string().required('Broadcast To required'),
       broadCastHeading: Yup.string().required('Broadcast Heading To required'),
       broadCastMessage: Yup.string().required('Broadcast Message required'),
-      channelVariation: Yup.string().when('broadcastTo', (broadCastTo, schema) => {
+      channelVariation: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
         return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       }),
-      chipsType: Yup.string().when('broadcastTo', (broadCastTo, schema) => {
+      chipsType: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
+        console.log(broadCastTo,)
         return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       }),
-      channelId: Yup.string().when('broadcastTo', (broadCastTo, schema) => {
+      channelId: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
         return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       })
     }),
@@ -96,7 +97,7 @@ const BroadcastManagement = () => {
             <label className='col-form-label'>Broadcast To:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select name='broadCastTo' className='form-control form-select' value={formik.values.broadCastTo} onChange={formik.handleChange} onBlur={formik.handleBlur} >
+            <select name='broadCastTo' className={'form-control form-select '+ (formik.errors.broadCastTo ? 'shadow border border-danger' : 'shadow border border-success')} value={formik.values.broadCastTo} onChange={formik.handleChange} onBlur={formik.handleBlur} >
               <option defaultValue hidden>Select Broadcast To</option>
               <option value='ALL_PLAYERS' >All Players</option>
               <option value='TABLE' >Table</option>
@@ -111,7 +112,7 @@ const BroadcastManagement = () => {
               <label className='col-form-label'>Game Variation:</label>
             </div>
               <div className='col-lg-3 col-md-3 text-center'>
-                <select className='form-control form-select' name='channelVariation' value={formik.values.channelVariation} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                <select className={'form-control form-select '+ (formik.errors.channelVariation ? 'shadow border border-danger' : 'shadow border border-success')} name='channelVariation' value={formik.values.channelVariation} onChange={formik.handleChange} onBlur={formik.handleBlur}>
                   <option defaultValue hidden>Select Game Variation</option>
                   <option value='Texas Hold’em' >Texas Hold'em</option>
                   <option value='Omaha' >Omaha</option>
@@ -128,7 +129,7 @@ const BroadcastManagement = () => {
                 <label className='col-form-label'>Chips Type:</label>
               </div>
               <div className='col-lg-3 col-md-3 text-center'>
-                <select className='form-control form-select' name='chipsType' value={formik.values.chipsType} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                <select className={'form-control form-select '+ (formik.errors.chipsType ? 'shadow border border-danger' : 'shadow border border-success')} name='chipsType' value={formik.values.chipsType} onChange={formik.handleChange} onBlur={formik.handleBlur}>
                   <option defaultValue hidden>Select Chips Type</option>
                   <option value='ALL' >All</option>
                   <option value='REAL_MONEY' >Real Money</option>
@@ -142,7 +143,7 @@ const BroadcastManagement = () => {
                 <label className='col-form-label'>Table:</label>
               </div>
               <div className='col-lg-3 col-md-3 text-center'>
-                <select className='form-control form-select' name='channelId' value={formik.values.channelId} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                <select className={'form-control form-select '+ (formik.errors.channelId ? 'shadow border border-danger' : 'shadow border border-success')} name='channelId' value={formik.values.channelId} onChange={formik.handleChange} onBlur={formik.handleBlur}>
                   <option defaultValue hidden>Select a Table</option>
                   {tableList && tableList.map((table) => (
                     <option key={table._id} value={table.channelId}>{table.channelName}</option>
@@ -156,7 +157,7 @@ const BroadcastManagement = () => {
             <label className='col-form-label'>Broadcast Heading:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input type='text' name='broadCastHeading' className='form-control' value={formik.values.broadCastHeading} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+            <input type='text' name='broadCastHeading' className={'form-control '+ (formik.errors.broadCastHeading ? 'shadow border border-danger' : 'shadow border border-success')} value={formik.values.broadCastHeading} onChange={formik.handleChange} onBlur={formik.handleBlur} />
             {formik.touched.broadCastHeading && formik.errors.broadCastHeading ?
               (<small className="error-msg">{formik.errors.broadCastHeading}</small>) : null}
           </div>
@@ -165,7 +166,7 @@ const BroadcastManagement = () => {
             <label className='col-form-label'>Broadcast Message:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <textarea name='broadCastMessage' className='form-control' value={formik.values.broadCastMessage} onChange={formik.handleChange} onBlur={formik.handleBlur} ></textarea>
+            <textarea name='broadCastMessage' className={'form-control ' + (formik.errors.broadCastMessage ? 'shadow border border-danger' : 'shadow border border-success')} value={formik.values.broadCastMessage} onChange={formik.handleChange} onBlur={formik.handleBlur} ></textarea>
             {formik.touched.broadCastMessage && formik.errors.broadCastMessage ?
               (<small className="error-msg">{formik.errors.broadCastMessage}</small>) : null}
           </div>

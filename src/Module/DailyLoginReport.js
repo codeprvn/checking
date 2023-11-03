@@ -149,7 +149,7 @@ const DailyLoginReport = () => {
               <label className='col-form-label'>Username:</label>
             </div>
             <div className='col-lg-3 col-md-3 text-center'>
-              <input type='text' name='userName' className='form-control' value={formik.values.userName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Name' />
+              <input type='text' name='userName' className={'form-control '+ (formik.errors.userName ? 'shadow border border-danger' : 'shadow border border-success')} value={formik.values.userName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Name' />
               {formik.touched.userName && formik.errors.userName ? (
                 <small className="error-msg">{formik.errors.userName}</small>) : null}
             </div>
@@ -158,7 +158,7 @@ const DailyLoginReport = () => {
               <label className='col-form-label'>Start Date:</label>
             </div>
             <div className='col-lg-3 col-md-3 text-center'>
-              <input type="date" className='form-control' name="start" value={formik.values.start} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+              <input type="date" className={'form-control '+ (formik.errors.start ? 'shadow border border-danger' : 'shadow border border-success')} max={ new Date().toISOString().slice(0, 10)} name="start" value={formik.values.start} onBlur={formik.handleBlur} onChange={formik.handleChange} />
               {formik.touched.start && formik.errors.start ? (
                 <small className="error-msg">{formik.errors.start}</small>) : null}
             </div>
@@ -167,7 +167,7 @@ const DailyLoginReport = () => {
               <label className='col-form-label'>End Date:</label>
             </div>
             <div className='col-lg-3 col-md-3 text-center'>
-              <input type="date" className='form-control' name="end" value={formik.values.end} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+              <input type="date" className={'form-control '+ (formik.errors.end ? 'shadow border border-danger' : 'shadow border border-success')} min={formik.values.start} max={ new Date().toISOString().slice(0, 10)} name="end" value={formik.values.end} onBlur={formik.handleBlur} onChange={formik.handleChange} />
               {formik.touched.end && formik.errors.end ? (
                 <small className="error-msg">{formik.errors.end}</small>) : null}
             </div>

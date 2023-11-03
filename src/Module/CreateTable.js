@@ -88,7 +88,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Table Name:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='channelName' type='text' value={formik.values.channelName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Table Name' />
+            <input className={'form-control ' + (formik.errors.channelName ? 'shadow border border-danger' : 'shadow border border-success')} name='channelName' type='text' value={formik.values.channelName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Table Name' />
             {formik.touched.channelName && formik.errors.channelName ? (
               <small className="error-msg">{formik.errors.channelName}</small>
             ) : null}
@@ -98,7 +98,7 @@ const CreateTable = () => {
             <label className='col-form-label'>GameVariation:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='channelVariation' value={formik.values.channelVariation} onBlur={formik.handleBlur} onChange={formik.handleChange}>
+            <select className={'form-control form-select ' +(formik.errors.channelVariation ? 'shadow border border-danger' : 'shadow border border-success') } name='channelVariation' value={formik.values.channelVariation} onBlur={formik.handleBlur} onChange={formik.handleChange}>
               <option defaultValue hidden>Select Player Type</option>
               <option value='Texas Hold’em' >Texas Hold'em</option>
               <option value='Omaha' >Omaha</option>
@@ -116,7 +116,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Stakes:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='isPotLimit' onBlur={formik.handleBlur} value={formik.values.isPotLimit} onChange={formik.handleChange} >
+            <select className={'form-control form-select ' +(formik.errors.isPotLimit ? 'shadow border border-danger' : 'shadow border border-success')} name='isPotLimit' onBlur={formik.handleBlur} value={formik.values.isPotLimit} onChange={formik.handleChange} >
               <option defaultValue hidden>Select Player Type</option>
               <option value='Pot Limit' >Pot Limit</option>
               <option value='No Limit' >No Limit</option>
@@ -130,7 +130,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Small Blind:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='smallBlind' type='number' onBlur={formik.handleBlur} value={formik.values.smallBlind} onChange={formik.handleChange} placeholder='Enter Small Blind' />
+            <input className={'form-control ' +(formik.errors.smallBlind ? 'shadow border border-danger' : 'shadow border border-success')} name='smallBlind' type='number' onBlur={formik.handleBlur} value={formik.values.smallBlind} onChange={formik.handleChange} placeholder='Enter Small Blind' />
             {formik.touched.smallBlind && formik.errors.smallBlind ? (
               <small className="error-msg">{formik.errors.smallBlind}</small>
             ) : null}
@@ -140,7 +140,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Big Blind:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='bigBlind' type='number' onBlur={formik.handleBlur} value={formik.values.bigBlind} onChange={formik.handleChange} placeholder='Enter Big Blind' />
+            <input className={'form-control ' +(formik.errors.bigBlind ? 'shadow border border-danger' : 'shadow border border-success')} name='bigBlind' type='number' onBlur={formik.handleBlur} value={formik.values.bigBlind} onChange={formik.handleChange} placeholder='Enter Big Blind' />
             {formik.touched.bigBlind && formik.errors.bigBlind ? (
               <small className="error-msg">{formik.errors.bigBlind}</small>
             ) : null}
@@ -150,7 +150,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Players on table:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='maxPlayers' type='number' onBlur={formik.handleBlur} value={formik.values.maxPlayers} onChange={formik.handleChange} placeholder='Enter Player on Table' />
+            <input className={'form-control ' +(formik.errors.maxPlayers ? 'shadow border border-danger' : 'shadow border border-success')} name='maxPlayers' type='number' onBlur={formik.handleBlur} value={formik.values.maxPlayers} onChange={formik.handleChange} placeholder='Enter Player on Table' />
             {formik.touched.maxPlayers && formik.errors.maxPlayers ? (
               <small className="error-msg">{formik.errors.maxPlayers}</small>
             ) : null}
@@ -160,7 +160,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Min Buy-In:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='minBuyIn' type='number' onBlur={formik.handleBlur} value={formik.values.minBuyIn} onChange={formik.handleChange} placeholder='Enter Min Buy-In' />
+            <input className={'form-control ' +(formik.errors.minBuyIn ? 'shadow border border-danger' : 'shadow border border-success')} name='minBuyIn' type='number' onBlur={formik.handleBlur} value={formik.values.minBuyIn} onChange={formik.handleChange} placeholder='Enter Min Buy-In' />
             {formik.touched.minBuyIn && formik.errors.minBuyIn ? (
               <small className="error-msg">{formik.errors.minBuyIn}</small>
             ) : null}
@@ -170,7 +170,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Max Buy-In:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='maxBuyIn' type='number' onBlur={formik.handleBlur} value={formik.values.maxBuyIn} onChange={formik.handleChange} placeholder='Enter Max Buy-In' />
+            <input className={'form-control ' +(formik.errors.maxBuyIn ? 'shadow border border-danger' : 'shadow border border-success')} name='maxBuyIn' type='number' onBlur={formik.handleBlur} value={formik.values.maxBuyIn} onChange={formik.handleChange} placeholder='Enter Max Buy-In' />
             {formik.touched.maxBuyIn && formik.errors.maxBuyIn ? (
               <small className="error-msg">{formik.errors.maxBuyIn}</small>
             ) : null}
@@ -180,7 +180,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Straddle:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='isStraddleEnable' onBlur={formik.handleBlur} value={formik.values.isStraddleEnable} onChange={formik.handleChange} >
+            <select className={'form-control form-select ' +(formik.errors.isStraddleEnable ? 'shadow border border-danger' : 'shadow border border-success')} name='isStraddleEnable' onBlur={formik.handleBlur} value={formik.values.isStraddleEnable} onChange={formik.handleChange} >
               <option defaultValue hidden>Select Player Type</option>
               <option value='true' >Straddle Mandatory</option>
               <option value='false' >Straddle Optional</option>
@@ -194,7 +194,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Turn Time:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='turnTime' type='number' onBlur={formik.handleBlur} value={formik.values.turnTime} onChange={formik.handleChange} placeholder='Enter Turn time' />
+            <input className={'form-control ' +(formik.errors.turnTime ? 'shadow border border-danger' : 'shadow border border-success')} name='turnTime' type='number' onBlur={formik.handleBlur} value={formik.values.turnTime} onChange={formik.handleChange} placeholder='Enter Turn time' />
             {formik.touched.turnTime && formik.errors.turnTime ? (
               <small className="error-msg">{formik.errors.turnTime}</small>
             ) : null}
@@ -204,7 +204,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Buffer Time:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control' name='ctEnabledBufferTime' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferTime} onChange={formik.handleChange} >
+            <select className={'form-control ' +(formik.errors.ctEnabledBufferTime ? 'shadow border border-danger' : 'shadow border border-success')} name='ctEnabledBufferTime' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferTime} onChange={formik.handleChange} >
             <option defaultValue hidden>Select Player Type</option>
               <option value={5} >5</option>
               <option value={10} >10</option>
@@ -221,7 +221,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Buffer Hand:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='ctEnabledBufferHand' type='number' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferHand} onChange={formik.handleChange} placeholder='Enter Buffer Hand' />
+            <input className={'form-control ' +(formik.errors.ctEnabledBufferHand ? 'shadow border border-danger' : 'shadow border border-success')} name='ctEnabledBufferHand' type='number' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferHand} onChange={formik.handleChange} placeholder='Enter Buffer Hand' />
             {formik.touched.ctEnabledBufferHand && formik.errors.ctEnabledBufferHand ? (
               <small className="error-msg">{formik.errors.ctEnabledBufferHand}</small>
             ) : null}
@@ -231,7 +231,7 @@ const CreateTable = () => {
             <label className='col-form-label'>Run It Twice:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='isRunItTwiceTable' onBlur={formik.handleBlur} value={formik.values.isRunItTwiceTable} onChange={formik.handleChange} >
+            <select className={'form-control form-select ' +(formik.errors.isRunItTwiceTable ? 'shadow border border-danger' : 'shadow border border-success')} name='isRunItTwiceTable' onBlur={formik.handleBlur} value={formik.values.isRunItTwiceTable} onChange={formik.handleChange} >
               <option defaultValue hidden>Select a Value</option>
               <option value='true' >Yes</option>
               <option value='false' >No</option>

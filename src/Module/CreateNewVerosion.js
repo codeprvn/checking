@@ -71,7 +71,7 @@ const CreateNewVerosion = () => {
             <label className='col-form-label'>Version:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input type='text' name='appVersion' className='form-control' value={formik.values.appVersion} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Version' />
+            <input type='text' name='appVersion' className={'form-control '+ (formik.errors.appVersion ? 'shadow border border-danger' : 'shadow border border-success')} value={formik.values.appVersion} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Version' />
             {formik.touched.appVersion && formik.errors.appVersion ?
               (<small className="error-msg">{formik.errors.appVersion}</small>) : null}
           </div>
@@ -80,7 +80,7 @@ const CreateNewVerosion = () => {
             <label className='col-form-label'>Device Type:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='deviceType' value={formik.values.deviceType} onBlur={formik.handleBlur} onChange={formik.handleChange}>
+            <select className={'form-control form-select '+ (formik.errors.deviceType ? 'shadow border border-danger' : 'shadow border border-success')} name='deviceType' value={formik.values.deviceType} onBlur={formik.handleBlur} onChange={formik.handleChange}>
               <option defaultValue hidden>Select Player Type</option>
               <option value='androidApp' >Android</option>
               <option value='iosApp' >IOS</option>
@@ -97,7 +97,7 @@ const CreateNewVerosion = () => {
             <label className='col-form-label'>Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='state' value={formik.values.state} onBlur={formik.handleBlur} onChange={formik.handleChange}>
+            <select className={'form-control form-select '+ (formik.errors.state ? 'shadow border border-danger' : 'shadow border border-success')} name='state' value={formik.values.state} onBlur={formik.handleBlur} onChange={formik.handleChange}>
               <option defaultValue hidden>Select Player Type</option>
               <option value='Active' >Active</option>
               <option value='Inactive' >In-Active</option>
@@ -110,7 +110,7 @@ const CreateNewVerosion = () => {
             <label className='col-form-label'>Maintenance Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='maintenanceState' value={formik.values.maintenanceState} onBlur={formik.handleBlur} onChange={formik.handleChange}>
+            <select className={'form-control form-select '+ (formik.errors.maintenanceState ? 'shadow border border-danger' : 'shadow border border-success')} name='maintenanceState' value={formik.values.maintenanceState} onBlur={formik.handleBlur} onChange={formik.handleChange}>
               <option defaultValue hidden>Select Player Type</option>
               <option value='Active' >Active</option>
               <option value='Inactive' >In-Active</option>

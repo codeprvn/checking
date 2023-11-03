@@ -171,7 +171,7 @@ const ListPlayers = () => {
               <label className='col-form-label'>Username:</label>
             </div>
             <div className='col-lg-3 text-center'>
-              <input className='form-control' type='text' name='userName' value={formik.values.userName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Name' />
+              <input className={'form-control '+ (formik.errors.userName ? 'shadow border border-danger' : 'shadow border border-success')} type='text' name='userName' value={formik.values.userName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Name' />
               {formik.touched.userName && formik.errors.userName ? (
                 <small className="error-msg">{formik.errors.userName}</small>
               ) : null}
@@ -181,7 +181,7 @@ const ListPlayers = () => {
               <label className='col-form-label'>Email:</label>
             </div>
             <div className='col-lg-3 text-center'>
-              <input className='form-control' type='email' name='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Email' />
+              <input className={'form-control ' + (formik.errors.email ? 'shadow border border-danger' : 'shadow border border-success')} type='email' name='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Email' />
               {formik.touched.email && formik.errors.email ? (
                 <small className="error-msg">{formik.errors.email}</small>
               ) : null}
@@ -191,7 +191,7 @@ const ListPlayers = () => {
               <label className='col-form-label'>Phone:</label>
             </div>
             <div className='col-lg-3 text-center'>
-              <input className='form-control' type='number' name='mobileNo' value={formik.values.mobileNo} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Phone no' />
+              <input className={'form-control ' + (formik.errors.mobileNo ? 'shadow border border-danger' : 'shadow border border-success')} type='number' name='mobileNo' value={formik.values.mobileNo} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Phone no' />
               {formik.touched.mobileNo && formik.errors.mobileNo ? (
                 <small className="error-msg">{formik.errors.mobileNo}</small>
               ) : null}
