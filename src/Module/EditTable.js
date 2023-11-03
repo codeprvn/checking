@@ -67,6 +67,7 @@ const EditTable = () => {
         const formData = { ...values }
         formData.isStraddleEnable = formData.isStraddleEnable === 'true' || formData.isStraddleEnable === true ? true : false
         formData.isRunItTwiceTable = formData.isRunItTwiceTable === 'true' || formData.isRunItTwiceTable === true ? true : false
+        formData.ctEnabledBufferTime = +formData.ctEnabledBufferTime;
         const resp = await http.put(`game-management/updateTable/${id}`, formData)
         if (resp?.data?.success === true) {
           setDiaMsg(resp.data.message);
@@ -116,7 +117,7 @@ const EditTable = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className='row g-3 mb-5 align-items-center'>
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Table Name</label>
+            <label className='col-form-label'>Table Name:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='channelName' type='text' value={formik.values.channelName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Table Name' readOnly />
@@ -126,7 +127,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>GameVariation</label>
+            <label className='col-form-label'>Game Variation:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='channelVariation' value={formik.values.channelVariation} onBlur={formik.handleBlur} onChange={formik.handleChange}>
@@ -144,14 +145,14 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Channel Id</label>
+            <label className='col-form-label'>Channel Id:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='channelId' type='text' value={formik.values.channelId} onChange={formik.handleChange} readOnly placeholder='Enter channel id' />
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Stakes</label>
+            <label className='col-form-label'>Stakes:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='isPotLimit' onBlur={formik.handleBlur} value={formik.values.isPotLimit} onChange={formik.handleChange} >
@@ -165,7 +166,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Small Blind</label>
+            <label className='col-form-label'>Small Blind:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='smallBlind' type='number' onBlur={formik.handleBlur} value={formik.values.smallBlind} onChange={formik.handleChange} placeholder='Enter Small Blind' />
@@ -175,7 +176,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Big Blind</label>
+            <label className='col-form-label'>Big Blind:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='bigBlind' type='number' onBlur={formik.handleBlur} value={formik.values.bigBlind} onChange={formik.handleChange} placeholder='Enter Big Blind' />
@@ -185,7 +186,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Players on table</label>
+            <label className='col-form-label'>Players on table:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='maxPlayers' type='number' onBlur={formik.handleBlur} value={formik.values.maxPlayers} onChange={formik.handleChange} placeholder='Enter Player on Table' />
@@ -195,7 +196,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Min Buy-In</label>
+            <label className='col-form-label'>Min Buy-In:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='minBuyIn' type='number' onBlur={formik.handleBlur} value={formik.values.minBuyIn} onChange={formik.handleChange} placeholder='Enter Min Buy-In' />
@@ -205,7 +206,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Max Buy-In</label>
+            <label className='col-form-label'>Max Buy-In:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='maxBuyIn' type='number' onBlur={formik.handleBlur} value={formik.values.maxBuyIn} onChange={formik.handleChange} placeholder='Enter Max Buy-In' />
@@ -215,7 +216,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Straddle</label>
+            <label className='col-form-label'>Straddle:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='isStraddleEnable' onBlur={formik.handleBlur} value={formik.values.isStraddleEnable} onChange={formik.handleChange} >
@@ -229,7 +230,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Turn Time</label>
+            <label className='col-form-label'>Turn Time:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='turnTime' type='number' onBlur={formik.handleBlur} value={formik.values.turnTime} onChange={formik.handleChange} placeholder='Enter Turn time' />
@@ -239,17 +240,24 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Buffer Time</label>
+            <label className='col-form-label'>Buffer Time:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <input className='form-control' name='ctEnabledBufferTime' type='number' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferTime} onChange={formik.handleChange} placeholder='Enter Bufer time' />
+          <select className='form-control' name='ctEnabledBufferTime' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferTime} onChange={formik.handleChange} >
+            <option defaultValue hidden>Select Player Type</option>
+              <option value={5} >5</option>
+              <option value={10} >10</option>
+              <option value={20} >20</option>
+              <option value={30} >30</option>
+              <option value={45} >45</option>
+            </select>
             {formik.touched.ctEnabledBufferTime && formik.errors.ctEnabledBufferTime ? (
               <small className="error-msg">{formik.errors.ctEnabledBufferTime}</small>
             ) : null}
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Buffer Hand</label>
+            <label className='col-form-label'>Buffer Hand:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='ctEnabledBufferHand' type='number' onBlur={formik.handleBlur} value={formik.values.ctEnabledBufferHand} onChange={formik.handleChange} placeholder='Enter Buffer Hand' />
@@ -259,7 +267,7 @@ const EditTable = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Run It Twice</label>
+            <label className='col-form-label'>Run It Twice:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='isRunItTwiceTable' onBlur={formik.handleBlur} value={formik.values.isRunItTwiceTable} onChange={formik.handleChange} >

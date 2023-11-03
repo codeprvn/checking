@@ -52,7 +52,7 @@ const EditVersion = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className='row g-3 mb-5 align-items-center'>
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Version</label>
+            <label className='col-form-label'>Version:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input type='text' name='appVersion' className='form-control' value={formik.values.appVersion} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Version' />
@@ -61,7 +61,7 @@ const EditVersion = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Device Type</label>
+            <label className='col-form-label'>Device Type:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='deviceType' value={formik.values.deviceType} onBlur={formik.handleBlur} onChange={formik.handleChange}>
@@ -78,7 +78,7 @@ const EditVersion = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Status</label>
+            <label className='col-form-label'>Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='status' value={formik.values.status} onBlur={formik.handleBlur} onChange={formik.handleChange}>
@@ -91,7 +91,7 @@ const EditVersion = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Maintenance Status</label>
+            <label className='col-form-label'>Maintenance Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='maintenanceState' value={formik.values.maintenanceState} onBlur={formik.handleBlur} onChange={formik.handleChange}>

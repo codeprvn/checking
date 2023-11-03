@@ -81,6 +81,13 @@ const BroadcastManagement = () => {
     }
   })
 
+  // form reset
+  const formReset = (event) => {
+    event.preventDefault();
+    formik.resetForm();
+    listTable();
+  }
+
   return (
     <div className='container-fluid'>
       <form onSubmit={formik.handleSubmit}>
@@ -165,8 +172,8 @@ const BroadcastManagement = () => {
         </div>
 
         <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
-          <span className="button-wrapper"><button type="submit" className="button-37" >Submit</button></span>
-          <span className="button-wrapper"><button type="reset" className="button-37-cancel">Reset</button></span>
+          <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.isValid}>Submit</button></span>
+          <span className="button-wrapper"><button type="reset" className="button-37-cancel" onClick={formReset} >Reset</button></span>
         </div>
       </form>
       <SuccessDialog opendia={openDia} DiaMsg={diaMsg} closedia={closeDia} />

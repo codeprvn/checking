@@ -131,8 +131,7 @@ input[readonly]:focus {
   color: var(--headtextColor);
 }
 
-.navbar-item a:hover,
-.navbar-item a:focus {
+.navbar-item a:hover {
   color: var(--activeLink);
 }
 /* for active link */

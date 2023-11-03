@@ -5,6 +5,7 @@ import SharedTable from '../shared component/SharedTable';
 import { useNavigate } from 'react-router-dom';
 import http from '../utilities/api';
 import InvalidDialog from '../shared component/InvalidDialog';
+import { removeEmpty } from '../utilities/sharedMethod';
 
 const ListPlayers = () => {
 
@@ -105,16 +106,17 @@ const ListPlayers = () => {
     initialValues: formdata,
     validateOnMount: true,
     validationSchema: Yup.object({
-      userName: Yup.string().required('Table name required'),
-      email: Yup.string().required('Email required').email('Invalid Email type'),
-      mobileNo: Yup.string().required('Mobile No required').max(10, 'Max 10 digit required').min(10, 'Min 10 digit required')
+      userName: Yup.string(),
+      email: Yup.string().email('Invalid Email type'),
+      mobileNo: Yup.string().max(10, 'Max 10 digit required').min(10, 'Min 10 digit required')
     }),
     onSubmit: async (values) => {
       try {
-        const resp = await http.get('user-management/searchPlayer', { params: { ...values, skip: 0, limit: 20 } })
+        const formdata = removeEmpty(values)
+        const resp = await http.get('user-management/searchPlayer', { params: { ...formdata, skip: 0, limit: 20 } })
         setPage(0);
         if (resp?.data?.success === true) {
-          forFilter.current = { ...values }
+          forFilter.current = { ...formdata }
           // setForFilter({...values})
           setRows([...resp.data.data]);
           setTotalPage(resp.data.totalData);
@@ -166,7 +168,7 @@ const ListPlayers = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className='row g-3 mb-5 align-items-center'>
             <div className='col-lg-3 text-center'>
-              <label className='col-form-label'>Username</label>
+              <label className='col-form-label'>Username:</label>
             </div>
             <div className='col-lg-3 text-center'>
               <input className='form-control' type='text' name='userName' value={formik.values.userName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Name' />
@@ -176,7 +178,7 @@ const ListPlayers = () => {
             </div>
 
             <div className='col-lg-3 text-center'>
-              <label className='col-form-label'>Email</label>
+              <label className='col-form-label'>Email:</label>
             </div>
             <div className='col-lg-3 text-center'>
               <input className='form-control' type='email' name='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Email' />
@@ -186,7 +188,7 @@ const ListPlayers = () => {
             </div>
 
             <div className='col-lg-3 text-center'>
-              <label className='col-form-label'>Phone</label>
+              <label className='col-form-label'>Phone:</label>
             </div>
             <div className='col-lg-3 text-center'>
               <input className='form-control' type='number' name='mobileNo' value={formik.values.mobileNo} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Phone no' />
@@ -196,7 +198,7 @@ const ListPlayers = () => {
             </div>
           </div>
           <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
-            <span className="button-wrapper"><button type="submit" className="button-37">Submit</button></span>
+            <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.values.mobileNo && !formik.values.email && !formik.values.userName}>Submit</button></span>
             <span className="button-wrapper"><button type="reset" onClick={resetForm} className="button-37-cancel">Reset</button></span>
             <span className="button-wrapper"><button className="button-37-csv" role="button" onClick={e => downloadCsv(e)}>CSV</button></span>
           </div>

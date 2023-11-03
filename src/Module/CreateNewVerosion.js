@@ -28,14 +28,14 @@ const CreateNewVerosion = () => {
     initialValues: {
       appVersion: '',
       deviceType: '',
-      status: '',
+      state: '',
       maintenanceState: ''
     },
     validateOnMount: true,
     validationSchema: Yup.object({
       appVersion: Yup.string().required('App version required'),
       deviceType: Yup.string().required('Device Type required'),
-      status: Yup.string().required('Status Type required'),
+      state: Yup.string().required('Status Type required'),
       maintenanceState: Yup.string().required('Maintenance Status Type required')
     }),
     onSubmit: async value => {
@@ -56,12 +56,19 @@ const CreateNewVerosion = () => {
     }
   })
 
+
+  // form reset
+  const formReset = (event) => {
+    event.preventDefault();
+    formik.resetForm();
+  }
+
   return (
     <div className='container-fluid'>
       <form onSubmit={formik.handleSubmit}>
         <div className='row g-3 mb-5 align-items-center'>
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Version</label>
+            <label className='col-form-label'>Version:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input type='text' name='appVersion' className='form-control' value={formik.values.appVersion} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Version' />
@@ -70,7 +77,7 @@ const CreateNewVerosion = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Device Type</label>
+            <label className='col-form-label'>Device Type:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='deviceType' value={formik.values.deviceType} onBlur={formik.handleBlur} onChange={formik.handleChange}>
@@ -87,20 +94,20 @@ const CreateNewVerosion = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Status</label>
+            <label className='col-form-label'>Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
-            <select className='form-control form-select' name='status' value={formik.values.status} onBlur={formik.handleBlur} onChange={formik.handleChange}>
+            <select className='form-control form-select' name='state' value={formik.values.state} onBlur={formik.handleBlur} onChange={formik.handleChange}>
               <option defaultValue hidden>Select Player Type</option>
               <option value='Active' >Active</option>
               <option value='Inactive' >In-Active</option>
             </select>
-            {formik.touched.status && formik.errors.status ?
-              (<small className="error-msg">{formik.errors.status}</small>) : null}
+            {formik.touched.state && formik.errors.state ?
+              (<small className="error-msg">{formik.errors.state}</small>) : null}
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Maintenance Status</label>
+            <label className='col-form-label'>Maintenance Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='maintenanceState' value={formik.values.maintenanceState} onBlur={formik.handleBlur} onChange={formik.handleChange}>
@@ -115,8 +122,8 @@ const CreateNewVerosion = () => {
         </div>
 
         <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
-          <span className="button-wrapper"><button type="submit" className="button-37" >Submit</button></span>
-          <span className="button-wrapper"><button type="reset" className="button-37-cancel">Reset</button></span>
+          <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.isValid} >Submit</button></span>
+          <span className="button-wrapper"><button className="button-37-cancel" onClick={formReset} >Reset</button></span>
         </div>
       </form>
       <SuccessDialog opendia={openDia} DiaMsg={diaMsg} closedia={closeDia} />

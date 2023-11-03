@@ -108,7 +108,7 @@ const EditPlayer = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className='row g-3 mb-5 align-items-center'>
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>First Name</label>
+            <label className='col-form-label'>First Name:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='firstName' type='text' value={formik.values.firstName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter First Name' />
@@ -118,7 +118,7 @@ const EditPlayer = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Last Name</label>
+            <label className='col-form-label'>Last Name:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='lastName' type='text' value={formik.values.lastName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Last Name' />
@@ -128,7 +128,7 @@ const EditPlayer = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>User Name:</label>
+            <label className='col-form-label'>Username:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' name='userName' type='text' onBlur={formik.handleBlur} value={formik.values.userName} onChange={formik.handleChange} placeholder='Enter User Name' readOnly />
@@ -138,7 +138,7 @@ const EditPlayer = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Email</label>
+            <label className='col-form-label'>Email:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' type='email' name='emailId' value={formik.values.emailId} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Email' />
@@ -148,7 +148,7 @@ const EditPlayer = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Phone</label>
+            <label className='col-form-label'>Phone:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <input className='form-control' type='number' name='mobileNumber' value={formik.values.mobileNumber} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Phone No' />
@@ -158,7 +158,7 @@ const EditPlayer = () => {
           </div>
 
           <div className='col-lg-3 col-md-3 text-center'>
-            <label className='col-form-label'>Status</label>
+            <label className='col-form-label'>Status:</label>
           </div>
           <div className='col-lg-3 col-md-3 text-center'>
             <select className='form-control form-select' name='isBlocked' onBlur={formik.handleBlur} value={formik.values.isBlocked} onChange={formik.handleChange} >

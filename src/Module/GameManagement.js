@@ -137,8 +137,8 @@ const GameManagement = () => {
     initialValues: formdata,
     // validateOnMount:true,
     validationSchema: Yup.object({
-      tableName: Yup.string().required('Table name required'),
-      isActive: Yup.string().required('Status required'),
+      tableName: Yup.string(),
+      isActive: Yup.string(),
     }),
     onSubmit: async (values) => {
       const params = removeEmpty(values)
@@ -187,7 +187,7 @@ const GameManagement = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className='row g-3 mb-5 align-items-center'>
             <div className='col-lg-3 text-center'>
-              <label className='col-form-label'>Table Name</label>
+              <label className='col-form-label'>Table Name:</label>
             </div>
             <div className='col-lg-3 text-center'>
               <input className='form-control' type='text' name='tableName' value={formik.values.tableName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Table Name' />
@@ -197,7 +197,7 @@ const GameManagement = () => {
             </div>
 
             <div className='col-lg-3 text-center'>
-              <label className='col-form-label'>Status</label>
+              <label className='col-form-label'>Status:</label>
             </div>
             <div className='col-lg-3 text-center'>
               <select className='form-control form-select' type='text' name='isActive' value={formik.values.isActive} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter Status'>
@@ -211,7 +211,7 @@ const GameManagement = () => {
             </div>
           </div>
           <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
-            <span className="button-wrapper"><button type="submit" className="button-37">Submit</button></span>
+            <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.values.isActive && !formik.values.tableName}>Submit</button></span>
             <span className="button-wrapper"><button type="reset" onClick={resetForm} className="button-37-cancel">Reset</button></span>
           </div>
         </form>

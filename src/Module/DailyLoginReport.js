@@ -146,7 +146,7 @@ const DailyLoginReport = () => {
         <form onSubmit={formik.handleSubmit}>
           <div className='row g-3 mb-5 align-items-center'>
             <div className='col-lg-3 col-md-3 text-center'>
-              <label className='col-form-label'>Username</label>
+              <label className='col-form-label'>Username:</label>
             </div>
             <div className='col-lg-3 col-md-3 text-center'>
               <input type='text' name='userName' className='form-control' value={formik.values.userName} onBlur={formik.handleBlur} onChange={formik.handleChange} placeholder='Enter User Name' />
@@ -155,7 +155,7 @@ const DailyLoginReport = () => {
             </div>
 
             <div className='col-lg-3 col-md-3 text-center'>
-              <label className='col-form-label'>Start Date :</label>
+              <label className='col-form-label'>Start Date:</label>
             </div>
             <div className='col-lg-3 col-md-3 text-center'>
               <input type="date" className='form-control' name="start" value={formik.values.start} onBlur={formik.handleBlur} onChange={formik.handleChange} />
@@ -164,7 +164,7 @@ const DailyLoginReport = () => {
             </div>
 
             <div className='col-lg-3 col-md-3 text-center'>
-              <label className='col-form-label'>End Date</label>
+              <label className='col-form-label'>End Date:</label>
             </div>
             <div className='col-lg-3 col-md-3 text-center'>
               <input type="date" className='form-control' name="end" value={formik.values.end} onBlur={formik.handleBlur} onChange={formik.handleChange} />
@@ -175,7 +175,7 @@ const DailyLoginReport = () => {
           </div>
 
           <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
-            <span className="button-wrapper"><button type="submit" className="button-37" >Submit</button></span>
+            <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.isValid} >Submit</button></span>
             <span className="button-wrapper"><button type="reset" onClick={resetForm} className="button-37-cancel">Reset</button></span>
             <span className="button-wrapper"><button className="button-37-csv" role="button" onClick={e => downloadCsv(e)}>CSV</button></span>
           </div>
