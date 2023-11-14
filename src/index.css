@@ -205,6 +205,7 @@ input[readonly]:focus {
     padding: 5px;
     z-index: 5;
     text-align: center;
+    box-shadow: 0px 7px 6px 0px rgba(24, 59, 86, 0.2);
   }
   .hamburger {
     display: block;

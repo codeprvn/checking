@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import http from '../utilities/api';
@@ -13,6 +13,7 @@ const BroadcastManagement = () => {
   const [diaMsg, setDiaMsg] = useState('');
   const [errorDia, setErrorDia] = useState(false);
   const [errorDiaMsg, setErrorDiaMsg] = useState('');
+  const allTable = useRef('');
 
   // Close Dialog function
   const closeDia = () => {
@@ -27,6 +28,7 @@ const BroadcastManagement = () => {
       const resp = await http.get('game-management/listTables')
       if (resp?.data?.success === true) {
         setTableList([...resp.data.data]);
+        allTable.current = [...resp.data.data]
       }
       else if (resp?.data?.success === false) {
         setErrorDiaMsg(resp.data.message);
@@ -45,7 +47,7 @@ const BroadcastManagement = () => {
       broadCastHeading: '',
       broadCastMessage: '',
       channelVariation: '',
-      chipsType: '',
+      // chipsType: '',
       channelId: ''
     },
     validateOnMount: true,
@@ -56,10 +58,10 @@ const BroadcastManagement = () => {
       channelVariation: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
         return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       }),
-      chipsType: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
-        console.log(broadCastTo,)
-        return broadCastTo[0] === 'TABLE' ? schema.required() : schema
-      }),
+      // chipsType: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
+      //   console.log(broadCastTo,)
+      //   return broadCastTo[0] === 'TABLE' ? schema.required() : schema
+      // }),
       channelId: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
         return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       })
@@ -89,6 +91,12 @@ const BroadcastManagement = () => {
     listTable();
   }
 
+  // to filter table list
+  const customHandleChange = (e, formik) =>{
+    formik.handleChange(e);
+    setTableList(allTable.current.filter((table)=> table.channelVariation===e.target.value))
+  }
+
   return (
     <div className='container-fluid'>
       <form onSubmit={formik.handleSubmit}>
@@ -112,7 +120,7 @@ const BroadcastManagement = () => {
               <label className='col-form-label'>Game Variation:</label>
             </div>
               <div className='col-lg-3 col-md-3 text-center'>
-                <select className={'form-control form-select '+ (formik.errors.channelVariation ? 'shadow border border-danger' : 'shadow border border-success')} name='channelVariation' value={formik.values.channelVariation} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                <select className={'form-control form-select '+ (formik.errors.channelVariation ? 'shadow border border-danger' : 'shadow border border-success')} name='channelVariation' value={formik.values.channelVariation} onChange={(e) => customHandleChange(e, formik)} onBlur={formik.handleBlur}>
                   <option defaultValue hidden>Select Game Variation</option>
                   <option value='Texas Hold’em' >Texas Hold'em</option>
                   <option value='Omaha' >Omaha</option>
@@ -125,7 +133,7 @@ const BroadcastManagement = () => {
                   (<small className="error-msg">{formik.errors.channelVariation}</small>) : null}
               </div>
 
-              <div className='col-lg-3 col-md-3 text-center'>
+              {/* <div className='col-lg-3 col-md-3 text-center'>
                 <label className='col-form-label'>Chips Type:</label>
               </div>
               <div className='col-lg-3 col-md-3 text-center'>
@@ -137,7 +145,7 @@ const BroadcastManagement = () => {
                 </select>
                 {formik.touched.chipsType && formik.errors.chipsType ?
                   (<small className="error-msg">{formik.errors.chipsType}</small>) : null}
-              </div>
+              </div> */}
 
               <div className='col-lg-3 col-md-3 text-center'>
                 <label className='col-form-label'>Table:</label>
