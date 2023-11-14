@@ -86,8 +86,9 @@ const EditTable = () => {
 
   const formReset = (event) => {
     event.preventDefault();
-    formik.resetForm()
-    fetchMyAPI()
+    formik.resetForm();
+    fetchMyAPI();
+    route(-1)
   }
 
   // this function is used for initial table data
@@ -283,7 +284,7 @@ const EditTable = () => {
 
         <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
           <span className="button-wrapper"><button type="submit" className="button-37" >Submit</button></span>
-          <span className="button-wrapper"><button onClick={formReset} className="button-37-cancel">Reset</button></span>
+          <span className="button-wrapper"><button onClick={formReset} className="button-37-cancel">Back</button></span>
         </div>
 
       </form>

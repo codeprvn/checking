@@ -80,6 +80,13 @@ const CreateTable = () => {
     },
   });
 
+   // for form reset
+   const resetForm = (event) => {
+    event.preventDefault();
+    formik.resetForm();
+    route(-1);
+  }
+
   return (
     <div className="container-fluid">
       <form onSubmit={formik.handleSubmit}>
@@ -244,7 +251,7 @@ const CreateTable = () => {
 
         <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
           <span className="button-wrapper"><button type="submit" className="button-37" >Submit</button></span>
-          <span className="button-wrapper"><button type="reset" className="button-37-cancel">Reset</button></span>
+          <span className="button-wrapper"><button onClick={resetForm} className="button-37-cancel">Back</button></span>
         </div>
 
       </form>
