@@ -135,10 +135,10 @@ input[readonly]:focus {
   color: var(--activeLink);
 }
 /* for active link */
-/* .navbar-item a.active {
+.navbar-item a.active {
   text-decoration: none;
   color: var(--activeLink);
-} */
+}
 
 .dropdown-menu {
   position: absolute;

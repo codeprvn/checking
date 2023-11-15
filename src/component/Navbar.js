@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "../assets/logo-dark.webp"
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate , useLocation } from "react-router-dom";
 import { FaBars } from 'react-icons/fa'
 
 const Navbar = () => {
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigate = useNavigate()
+  const { pathname } = useLocation();
 
   // function on dropdown menu
   const toggleDropdown = () => {
@@ -51,7 +52,7 @@ const Navbar = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <NavLink to='#'>User Management</NavLink>
+            <NavLink to='#' className={({ isActive})=>pathname.startsWith("/usermanagement") ? 'active': null}>User Management</NavLink>
             {isDropdownOpen && (
               <div className="dropdown-menu">
                 <ul className="dropdown-items">
@@ -65,7 +66,7 @@ const Navbar = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <NavLink to='#'>Version & Maintenance</NavLink>
+            <NavLink to='#' className={({ isActive})=>pathname.startsWith("/version") ? 'active': null}>Version & Maintenance</NavLink>
             {isDropdownOpen && (
               <div className="dropdown-menu">
                 <ul className="dropdown-items">
