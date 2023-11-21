@@ -5,12 +5,12 @@ import SharedTable from '../shared component/SharedTable';
 import { useNavigate } from 'react-router-dom';
 import http from '../utilities/api';
 import InvalidDialog from '../shared component/InvalidDialog';
-import { removeEmpty } from '../utilities/sharedMethod';
+import { removeEmpty, emailMask } from '../utilities/sharedMethod';
 
 const ListPlayers = () => {
 
   // list player state variable
-  const [formdata, setFormData] = useState({ userName: '', email: '', mobileNo: '' })
+  const formdata = { userName: '', email: '', mobileNo: '' }
 
   // Share Table state variable 
   const [rows, setRows] = useState([]);
@@ -84,7 +84,7 @@ const ListPlayers = () => {
   const columns = [{ id: 'position', label: 'Serial no' },
   { id: 'userName', label: 'Username' },
   { id: 'firstName', label: 'Full Name', },
-  { id: 'emailId', label: 'Email Id' },
+  { id: 'emailId', label: 'Email Id', format:(value)=>emailMask(value) },
   { id: 'mobileNumber', label: 'Phone no', format: (value) => typeof value === 'string' ? value.slice(-4).padStart(value.length, '*') : value },
   { id: 'points', label: 'Points', format: (value) => value[1].totalBalance },
   {
@@ -200,7 +200,7 @@ const ListPlayers = () => {
           <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
             <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.values.mobileNo && !formik.values.email && !formik.values.userName}>Submit</button></span>
             <span className="button-wrapper"><button type="reset" onClick={resetForm} className="button-37-cancel">Reset</button></span>
-            <span className="button-wrapper"><button className="button-37-csv" role="button" onClick={e => downloadCsv(e)}>CSV</button></span>
+            <span className="button-wrapper"><button className="button-37-csv" onClick={e => downloadCsv(e)}>CSV</button></span>
           </div>
         </form>
       </div>

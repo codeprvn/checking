@@ -11,7 +11,7 @@ import { removeEmpty } from '../utilities/sharedMethod';
 const GameManagement = () => {
 
   // Game management state variable
-  const [formdata, setFormData] = useState({ tableName: '', isActive: '' })
+  const formdata = { tableName: '', isActive: '' };
 
   // Share Table state variable 
   const [rows, setRows] = useState([]);
@@ -180,7 +180,7 @@ const GameManagement = () => {
       <div className="navBar container-fluid mb-5">
         <p>Table List</p>
         <div className="button-wrapper"><Link to='create-table'>
-          <button className="button-64" role="button"><span className="text">Create Table</span></button>
+          <button className="button-64"><span className="text">Create Table</span></button>
         </Link></div>
       </div>
       <div className='container-fluid'>

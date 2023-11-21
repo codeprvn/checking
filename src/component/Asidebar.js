@@ -15,7 +15,7 @@ const Asidebar = () => {
             items={item}
             isActive={isActive === item.name}
             setAct={() => {
-              setIsActive((pre) => (pre == item.name ? null : item.name));
+              setIsActive((pre) => (pre === item.name ? null : item.name));
             }}
           />
         ))}

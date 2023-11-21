@@ -56,7 +56,7 @@ function Login() {
       }}
     >
       <div className="text-center my-3">
-        <img src={gbLogo} height="100px" />
+        <img src={gbLogo} alt="Gamebadlo logo" height="100px" />
       </div>
       <div className="d-flex flex-column p-3 rounded loginDetails">
         <div className="my-4">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "../assets/logo-dark.webp"
 import { Link, NavLink, useNavigate , useLocation } from "react-router-dom";
 import { FaBars } from 'react-icons/fa'
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
 
@@ -14,10 +15,10 @@ const Navbar = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation();
 
-  // function on dropdown menu
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
+  // // function on dropdown menu
+  // const toggleDropdown = () => {
+  //   setDropdownOpen(!isDropdownOpen);
+  // };
 
   const handleMouseEnter = () => {
     setDropdownOpen(true);
@@ -41,7 +42,7 @@ const Navbar = () => {
 
   return (
     <div className="d-flex align-items-center w-100 justify-content-between p-2 header">
-      <div><Link to='/'><img src={logo} height='60px' /></Link></div>
+      <div><Link to='/'><img src={logo} height='60px' alt="Gamebadlo logo" /></Link></div>
 
       <nav className={isMobileMenuOpen ? "" : "navbar"}>
         <ul className={isMobileMenuOpen ? "open" : "navbar-menu"}>
@@ -56,8 +57,8 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="dropdown-menu">
                 <ul className="dropdown-items">
-                  <li className="dropdown-item"><NavLink to='usermanagement/list-player'>List Players</NavLink></li>
-                  <li className="dropdown-item"><NavLink to='usermanagement/daily-login-report'>Daily Login Report</NavLink></li>
+                  <li className="dropdown-item"><NavLink to='usermanagement/list-player' onClick={!isMobileMenuOpen ? handleMouseLeave:null}>List Players</NavLink></li>
+                  <li className="dropdown-item"><NavLink to='usermanagement/daily-login-report' onClick={!isMobileMenuOpen ? handleMouseLeave:null}>Daily Login Report</NavLink></li>
                 </ul>
               </div>
             )}
@@ -70,8 +71,8 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="dropdown-menu">
                 <ul className="dropdown-items">
-                  <li className="dropdown-item"><NavLink to='version/create-new-version'>Create new Version</NavLink></li>
-                  <li className="dropdown-item"><NavLink to='version/list-version'>List Version</NavLink></li>
+                  <li className="dropdown-item"><NavLink to='version/create-new-version' onClick={!isMobileMenuOpen ? handleMouseLeave:null}>Create new Version</NavLink></li>
+                  <li className="dropdown-item"><NavLink to='version/list-version' onClick={!isMobileMenuOpen ? handleMouseLeave:null}>List Version</NavLink></li>
                 </ul>
               </div>
             )}</li>
@@ -81,7 +82,7 @@ const Navbar = () => {
       </nav>
       
       <div className="hamburger" onClick={toggleMobileMenu}>
-        <div className="bar" style={{ fontSize: '35px', color: '#595959' }}><FaBars /></div>
+        <div className="bar" style={{ fontSize: '35px', color: '#595959' }}>{!isMobileMenuOpen?<FaBars /> : <IoMdClose />}</div>
       </div>
     </div>
   );

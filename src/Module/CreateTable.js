@@ -7,7 +7,7 @@ import InvalidDialog from '../shared component/InvalidDialog';
 import { useNavigate } from 'react-router-dom';
 
 const CreateTable = () => {
-  const [formData, setFormData] = useState({
+  const formData = {
     channelName: '',
     channelVariation: '',
     isPotLimit: '',
@@ -21,7 +21,7 @@ const CreateTable = () => {
     ctEnabledBufferTime: '',
     ctEnabledBufferHand: '',
     isRunItTwiceTable: ''
-  })
+  }
 
   // Dailog variable
   const [openDia, setOpenDia] = useState(false);

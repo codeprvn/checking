@@ -4,11 +4,12 @@ import * as Yup from "yup";
 import SharedTable from '../shared component/SharedTable';
 import http from '../utilities/api';
 import InvalidDialog from '../shared component/InvalidDialog';
+import { emailMask } from '../utilities/sharedMethod';
 
 const DailyLoginReport = () => {
 
   // list player state variable
-  const [formdata, setFormData] = useState({ userName: '', start: '', end: '' })
+  const formdata = { userName: '', start: '', end: '' };
 
   // Share Table state variable 
   const [rows, setRows] = useState([]);
@@ -69,7 +70,7 @@ const DailyLoginReport = () => {
   { id: 'device', label: 'Device' },
   { id: 'ipAddress', label: 'IP Address' },
   { id: 'contact', label: 'Mobile', format: (value) => value.slice(-4).padStart(value.length, '*')  },
-  { id: 'emailId', label: 'Email' },
+  { id: 'emailId', label: 'Email', format:(value)=> emailMask(value) },
   {
     id: 'loginTime', label: 'Login Time', format: (value) => {
       const d = new Date(value);
@@ -177,7 +178,7 @@ const DailyLoginReport = () => {
           <div className="d-flex g-2 flex-row align-items-center justify-content-evenly text-center">
             <span className="button-wrapper"><button type="submit" className="button-37" disabled={!formik.isValid} >Submit</button></span>
             <span className="button-wrapper"><button type="reset" onClick={resetForm} className="button-37-cancel">Reset</button></span>
-            <span className="button-wrapper"><button className="button-37-csv" role="button" onClick={e => downloadCsv(e)}>CSV</button></span>
+            <span className="button-wrapper"><button className="button-37-csv" onClick={e => downloadCsv(e)}>CSV</button></span>
           </div>
         </form>
       </div>

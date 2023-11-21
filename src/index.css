@@ -36,37 +36,57 @@ input[readonly]:focus {
 }
 
 /* .asideBar {
-  width: 25%;
-  position: fixed;
-  right: 0;
-  top:75px;
-  height: 100%;
-  background-color: var(--headerBgColor);
-  font-weight: 500;
-  z-index: 5;
+    position: fixed;
+    top: 75px;
+    right: 0;
+    background-color: var(--headerBgColor);
+    width: auto;
+    padding: 5px;
+    z-index: 5;
+    text-align: center;
+    box-shadow: 0px 7px 6px 0px rgba(24, 59, 86, 0.2);
+    min-height: 100vh;
+    line-height: 2;
+    background-color: #f7f5f5;
 } 
-
- .accordion-content {
-  background-color: #eee5e5;
+/* .accordion-item{
+  border-bottom: 1px solid black;
+} */
+ .accordion-content { 
   padding-left: 20px;
+  text-align: start;
+  padding-left: 14px;
+  background-color: #e4e4e4;
+  
 }
 
 .accordion-title{
+  color: var(--headtextColor);
+  font-weight: 500;
   padding: 10px;
+  
 }
+
 .accordion-content ul {
   margin: 0px;
   padding: 0px;
 }
 .accordion-content ul li {
   list-style: none;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .accordion-content ul li a {
   text-decoration: none;
   color: var(--headtextColor);
+  font-weight: 500;
+  font-size: 14px;
 }  */
+
+/* .accordion-content ul li a.active {
+  text-decoration: none;
+  color: var(--activeLink);
+} */
 
 /* login css */
 

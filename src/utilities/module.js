@@ -1,5 +1,25 @@
 export const items = [
   {
+    "_id": "65291461269a93033202c9d5",
+    "name": "Insights",
+    "code": 1401,
+    "iconClass": "icon-home",
+    "status": true,
+    "completed": false,
+    "allCompleted": false,
+    "subModule": [
+        {
+            "subname": "Insights",
+            "code": 1402,
+            "route": "/",
+            "iconClass": "icon-puzzle",
+            "status": true,
+            "completed": false
+        }
+    ],
+    "__v": 0
+},
+{
     _id: "651e5a7cf1b7f3d9b77a68eb",
     name: "Game Management",
     code: 101,
@@ -9,9 +29,9 @@ export const items = [
     allCompleted: false,
     subModule: [
       {
-        subname: "Table View & Creation",
+        subname: "Game Management",
         code: 102,
-        route: "/gameManagementHome/table-view",
+        route: "/game-management",
         iconClass: "icon-puzzle",
         status: true,
         completed: false,
@@ -31,7 +51,7 @@ export const items = [
       {
         subname: "List Players",
         code: 1206,
-        route: "/userManagement/list-players",
+        route: "/usermanagement/list-player",
         iconClass: "icon-puzzle",
         status: true,
         completed: false,
@@ -39,27 +59,7 @@ export const items = [
       {
         subname: "Daily LogIn Report",
         code: 1216,
-        route: "/userManagement/daily-login-report",
-        iconClass: "icon-puzzle",
-        status: true,
-        completed: false,
-      },
-    ],
-    __v: 0,
-  },
-  {
-    _id: "651e5a7cf1b7f3d9b77a68fd",
-    name: "Broadcast Management",
-    code: 2401,
-    iconClass: "icon-settings",
-    status: true,
-    completed: false,
-    allCompleted: false,
-    subModule: [
-      {
-        subname: "Broadcast to game",
-        code: 2403,
-        route: "/broadcastManagement/broadcast-to-game",
+        route: "/usermanagement/daily-login-report",
         iconClass: "icon-puzzle",
         status: true,
         completed: false,
@@ -79,7 +79,7 @@ export const items = [
       {
         subname: "Create New Version",
         code: 2303,
-        route: "versionMaintainence/create-new-version",
+        route: "/version/create-new-version",
         iconClass: "icon-puzzle",
         status: true,
         completed: false,
@@ -87,12 +87,32 @@ export const items = [
       {
         subname: "List Versions",
         code: 2304,
-        route: "versionMaintainence/list-versions",
+        route: "/version/list-version",
+        iconClass: "icon-puzzle",
+        status: true,
+        completed: false,
+      }
+    ],
+    __v: 0,
+  },
+  {
+    _id: "651e5a7cf1b7f3d9b77a68fd",
+    name: "Broadcast Management",
+    code: 2401,
+    iconClass: "icon-settings",
+    status: true,
+    completed: false,
+    allCompleted: false,
+    subModule: [
+      {
+        subname: "Broadcast Management",
+        code: 2403,
+        route: "/broadcastmanagement",
         iconClass: "icon-puzzle",
         status: true,
         completed: false,
       },
     ],
     __v: 0,
-  },
+  }
 ];
