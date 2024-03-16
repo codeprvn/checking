@@ -1,19 +1,24 @@
 
 import Accordion from "./Accordion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { items } from "../utilities/module";
-// import logo from "../assets/logo-dark.webp"
-import { Link} from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { useSelector } from "react-redux";
 import {getToggleState} from "../redux/selectors"
 
 const Asidebar = () => {
+  const location =useLocation()
   const menuState = useSelector(getToggleState)
   const [isActive, setIsActive] = useState("");  
 
+  useEffect(()=>{
+    let activeRoute = items.find((item) => item.subModule.map(route => route.route).includes(location.pathname));
+   setIsActive(activeRoute?.name)
+  }, [location.pathname]);
+
   return (
     <>
-      {menuState && <div className="" style={{backgroundColor: '#fdf7ee', border:'1px solid rgb(213 206 196)'}}>
+      <div className={`asideBar ${menuState ? "open1" : "close"}`} >
       
         {items.map((item, index) => (
           <Accordion
@@ -21,11 +26,11 @@ const Asidebar = () => {
             items={item}
             isActive={isActive === item.name}
             setAct={() => {
-              setIsActive((pre) => (pre === item.name ? null : item.name));
+              setIsActive((pre) => ( pre === item.name ? null : item.name));
             }}
           />
         ))}
-      </div>}
+      </div>
       
     </>
   );

@@ -10,7 +10,7 @@ const Layout = () => {
 
   return (
     <>
-     <div className="">
+    
       {/* <Navbar /> */}
     
       
@@ -18,13 +18,13 @@ const Layout = () => {
       <Header />
       <div className="d-flex flex-row innerLayout">
       <Asidebar />
-      <div className="d-flex flex-column innerLayout">
+      <div className="container-fluid d-flex flex-column m-0 p-0">
       <Content />
       <Footer />
       </div>
       </div>
       </div>
-    </div>
+    
     </>
   );
 };

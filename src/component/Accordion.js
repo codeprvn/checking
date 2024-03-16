@@ -1,8 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowDown  } from "react-icons/io";
-// import { CgCardSpades } from "react-icons/cg";
+import { useDispatch } from 'react-redux';
+import {toggleMenu} from '../redux/actions';
 
 const Accordion = ({ items, isActive, setAct }) => {
+  const mobileWindow = window.innerWidth < 992;
+  const dispatch = useDispatch();  
+  const handleToggleMenu =()=>{
+    mobileWindow && dispatch(toggleMenu())
+ }
+
   return (
     <div className="accordion-item mt-2">
       <div
@@ -16,7 +23,7 @@ const Accordion = ({ items, isActive, setAct }) => {
         <div className="accordion-content">
           <ul>
             {items?.subModule.map((link, index) => (
-              <li key={index}>
+              <li key={index} onClick={handleToggleMenu}>
                 <NavLink to={link.route}>{link?.subname}</NavLink>
               </li>
             ))}

@@ -36,18 +36,9 @@ input[readonly]:focus {
 }
 
 .asideBar {
-    position: fixed;
-    /* top: 75px; */
-    /* right: 0; */
-    background-color: var(--headerBgColor);
-    width: auto;
-    padding: 5px;
-    z-index: 5;
-    text-align: center;
-    box-shadow: 0px 7px 6px 0px rgba(24, 59, 86, 0.2);
-    min-height: 100vh;
-    line-height: 2;
-    background-color: #f7f5f5;
+    background-color: rgb(253, 247, 238);
+    border: 1px solid rgb(213, 206, 196);
+    
 } 
  .accordion-item{
   border-bottom: 1px solid black;
@@ -214,10 +205,43 @@ input[readonly]:focus {
 
 .hamburger {
   display: none;
+  transition: 10s  ease all;
 }
 
 @media screen and (max-width: 992px) {
+  .asideBar.open1{
+    display: block;
+    animation-name: slideIn;
+  }
+  .asideBar.close{
+    animation-name: slideOut;
+    animation-duration: 1s; 
+    display: none;
+  }
+  
+  .asideBar{
+    position: absolute;
+    height: 100%;
+    z-index: 999;
+    /* animation-name: slideIn; */
+    animation-duration: 1s; 
+    transition: height 0.5s ease, opacity 0.5s ease; /* Apply transition to height and opacity */
+    animation-timing-function: ease;
+  }
+
+   @keyframes slideIn { 
+     from { transform: translateX(-100%); } /*Slide in from left */
+    to { transform: translateX(0); }
+  } 
+  @keyframes slideOut {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
   .navbar {
+    display: none;
+  }
+
+  .logod{
     display: none;
   }
   .open {
