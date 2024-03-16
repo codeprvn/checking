@@ -35,10 +35,10 @@ input[readonly]:focus {
   opacity: 1;
 }
 
-/* .asideBar {
+.asideBar {
     position: fixed;
-    top: 75px;
-    right: 0;
+    /* top: 75px; */
+    /* right: 0; */
     background-color: var(--headerBgColor);
     width: auto;
     padding: 5px;
@@ -88,7 +88,7 @@ input[readonly]:focus {
 .accordion-content ul li a.active {
   text-decoration: none;
   color: var(--activeLink);
-} */
+}
 
 
 /* login css */
@@ -110,9 +110,13 @@ input[readonly]:focus {
 /* layout css  */
 
 .layout {
+  /* flex: 1; */
   min-height: 100vh;
 }
 
+.innerLayout{
+  flex: 1;
+}
 .content {
   flex: 1 0 auto;
   padding: 20px;

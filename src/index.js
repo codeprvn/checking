@@ -27,6 +27,8 @@ import CreateTable from "./Module/CreateTable";
 import EditTable from "./Module/EditTable";
 import EditPlayer from "./Module/EditPlayer";
 import {checkAuthLoader} from './utilities/auth'
+import { Provider } from "react-redux";
+import store from "./redux/store";
 // import EditVersion from "./Module/EditVersion";
 
 const routers = createBrowserRouter([
@@ -88,11 +90,17 @@ const routers = createBrowserRouter([
   }
 ]);
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
+  {/* <React.StrictMode> */}
+    
     <RouterProvider router={routers} />
-  </React.StrictMode>
+    
+  {/* </React.StrictMode> */}
+  </Provider>
 );
 
 reportWebVitals();

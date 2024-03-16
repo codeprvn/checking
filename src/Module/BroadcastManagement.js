@@ -59,7 +59,6 @@ const BroadcastManagement = () => {
         return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       }),
       // chipsType: Yup.string().when('broadCastTo', (broadCastTo, schema) => {
-      //   console.log(broadCastTo,)
       //   return broadCastTo[0] === 'TABLE' ? schema.required() : schema
       // }),
       channelId: Yup.string().when('broadCastTo', (broadCastTo, schema) => {

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import http from '../utilities/api';
 import InvalidDialog from '../shared component/InvalidDialog';
 
-const Insights = () => {
+const Insights = () => { 
+
   const [accountData, setAccountData] = useState({
     totalFreeChips: '',
     totalRegisteredUser: '',

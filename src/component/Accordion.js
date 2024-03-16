@@ -4,7 +4,7 @@ import { IoIosArrowForward, IoIosArrowDown  } from "react-icons/io";
 
 const Accordion = ({ items, isActive, setAct }) => {
   return (
-    <div className="accordion-item">
+    <div className="accordion-item mt-2">
       <div
         className={"accordion-title d-flex justify-content-between p-2"}
         onClick={setAct}
